@@ -126,49 +126,49 @@ const getJSON = function (url, errorMSG = 'Something went wrong') {
 //API CALL
 
 //old way
-// const getCountryData = function (country) {
-//   const request = new XMLHttpRequest();
-//   request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
-//   request.send();
-//   // console.log(request.responseText);
-//   //cannot do this because it does not load right away
+const getCountryData = function (country) {
+  const request = new XMLHttpRequest();
+  request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
+  request.send();
+  // console.log(request.responseText);
+  //cannot do this because it does not load right away
 
-//   request.addEventListener('load', function () {
-//     //   console.log(this.responseText);
+  request.addEventListener('load', function () {
+    //   console.log(this.responseText);
 
-//     const [data] = JSON.parse(this.responseText); //destructure it because it is an array containing one obejct
-//     console.log(data);
+    const [data] = JSON.parse(this.responseText); //destructure it because it is an array containing one obejct
+    console.log(data);
 
-//     //   console.log(data.languages.fil);
-//     //   console.log(data.currencies.PHP.name);
-//     const html = `
-//   <article class="country">
-//           <img class="country__img" src="${data.flags.svg}" />
-//           <div class="country__data">
-//             <h3 class="country__name">${data.name.official}</h3>
-//             <h4 class="country__region">${data.region}</h4>
-//             <p class="country__row"><span>👫</span>${(
-//               +data.population / 1000000
-//             ).toFixed(1)}</p>
-//             <p class="country__row"><span>🗣️</span>${
-//               data.languages[Object.keys(data.languages)[0]]
-//             }</p>
-//             <p class="country__row"><span>💰</span>${
-//               data.currencies[Object.keys(data.currencies)[0]].name
-//             }</p>
-//           </div>
-//         </article>
-//   `;
-//     countriesContainer.insertAdjacentHTML('beforeend', html);
-//     countriesContainer.style.opacity = 1;
-//   });
-// };
+    //   console.log(data.languages.fil);
+    //   console.log(data.currencies.PHP.name);
+    const html = `
+  <article class="country">
+          <img class="country__img" src="${data.flags.svg}" />
+          <div class="country__data">
+            <h3 class="country__name">${data.name.official}</h3>
+            <h4 class="country__region">${data.region}</h4>
+            <p class="country__row"><span>👫</span>${(
+              +data.population / 1000000
+            ).toFixed(1)}</p>
+            <p class="country__row"><span>🗣️</span>${
+              data.languages[Object.keys(data.languages)[0]]
+            }</p>
+            <p class="country__row"><span>💰</span>${
+              data.currencies[Object.keys(data.currencies)[0]].name
+            }</p>
+          </div>
+        </article>
+  `;
+    countriesContainer.insertAdjacentHTML('beforeend', html);
+    countriesContainer.style.opacity = 1;
+  });
+};
 
-// getCountryData('philippines');
-// getCountryData('usa');
-// getCountryData('germany');
+getCountryData('philippines');
+getCountryData('usa');
+getCountryData('germany');
 
-/*
+
 const getCountryAndNeighbour = function (country) {
   //AJAX CALL COUNTRY 1
   const request = new XMLHttpRequest();

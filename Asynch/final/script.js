@@ -35,7 +35,7 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
   });
 };
 
-/*
+
 ///////////////////////////////////////
 // Our First AJAX Call: XMLHttpRequest
 
@@ -70,12 +70,12 @@ const getCountryData = function (country) {
 getCountryData('portugal');
 getCountryData('usa');
 getCountryData('germany');
-*/
+
 
 ///////////////////////////////////////
 // Welcome to Callback Hell
 
-/*
+
 const getCountryAndNeighbour = function (country) {
   // AJAX call country 1
   const request = new XMLHttpRequest();
@@ -125,60 +125,60 @@ setTimeout(() => {
 }, 1000);
 
 
-///////////////////////////////////////
+/////////////////////////////////////
 // Consuming Promises
 // Chaining Promises
 // Handling Rejected Promises
 // Throwing Errors Manually
 
-// const getCountryData = function (country) {
-//   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-//     .then(function (response) {
-//       console.log(response);
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data);
-//       renderCountry(data[0]);
-//     });
-// };
+const getCountryData = function (country) {
+  fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      renderCountry(data[0]);
+    });
+};
 
-// const getCountryData = function (country) {
-//   // Country 1
-//   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-//     .then(response => {
-//       console.log(response);
+const getCountryData = function (country) {
+  // Country 1
+  fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+    .then(response => {
+      console.log(response);
 
-//       if (!response.ok)
-//         throw new Error(`Country not found (${response.status})`);
+      if (!response.ok)
+        throw new Error(`Country not found (${response.status})`);
 
-//       return response.json();
-//     })
-//     .then(data => {
-//       renderCountry(data[0]);
-//       // const neighbour = data[0].borders[0];
-//       const neighbour = 'dfsdfdef';
+      return response.json();
+    })
+    .then(data => {
+      renderCountry(data[0]);
+      // const neighbour = data[0].borders[0];
+      const neighbour = 'dfsdfdef';
 
-//       if (!neighbour) return;
+      if (!neighbour) return;
 
-//       // Country 2
-//       return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
-//     })
-//     .then(response => {
-//       if (!response.ok)
-//         throw new Error(`Country not found (${response.status})`);
+      // Country 2
+      return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+    })
+    .then(response => {
+      if (!response.ok)
+        throw new Error(`Country not found (${response.status})`);
 
-//       return response.json();
-//     })
-//     .then(data => renderCountry(data, 'neighbour'))
-//     .catch(err => {
-//       console.error(`${err} 💥💥💥`);
-//       renderError(`Something went wrong 💥💥 ${err.message}. Try again!`);
-//     })
-//     .finally(() => {
-//       countriesContainer.style.opacity = 1;
-//     });
-// };
+      return response.json();
+    })
+    .then(data => renderCountry(data, 'neighbour'))
+    .catch(err => {
+      console.error(`${err} 💥💥💥`);
+      renderError(`Something went wrong 💥💥 ${err.message}. Try again!`);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
+};
 
 const getCountryData = function (country) {
   // Country 1
@@ -243,7 +243,7 @@ TEST COORDINATES 2: -33.933, 18.474
 GOOD LUCK 😀
 */
 
-/*
+
 const whereAmI = function (lat, lng) {
   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then(res => {
@@ -377,7 +377,7 @@ const whereAmI = function () {
 };
 
 btn.addEventListener('click', whereAmI);
-*/
+
 
 ///////////////////////////////////////
 // Coding Challenge #2
@@ -404,7 +404,7 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 GOOD LUCK 😀
 */
 
-/*
+
 const wait = function (seconds) {
   return new Promise(function (resolve) {
     setTimeout(resolve, seconds * 1000);
